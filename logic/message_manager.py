@@ -25,6 +25,7 @@ def add_message(group_name, sender, text):
         messages[group_name] = []
 
     messages[group_name].append({
+        "id": len(messages[group_name]) + 1,
         "sender": sender,
         "text": text,
         "timestamp": datetime.now().strftime("%d-%m-%Y %H:%M")

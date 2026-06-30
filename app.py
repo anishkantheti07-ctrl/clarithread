@@ -83,27 +83,57 @@ if st.button("🧠 Generate Smart Summary"):
 
     st.subheader("📢 Key Updates")
 
-    if summary["updates"]:
-        for item in summary["updates"]:
+if summary["updates"]:
+
+    for item in summary["updates"]:
+
+        with st.expander(
+            f"📌 {item['text'][:50]}"
+        ):
+
+            st.write("Original Message")
+
             st.write(
-                f"• {item['text']} "
-                f"({item['sender']})"
+                f"**Sender:** {item['sender']}"
             )
-    else:
-        st.write("No updates found.")
+
+            st.write(
+                f"**Time:** {item['timestamp']}"
+            )
+
+            st.write(
+                f"**Message:** {item['text']}"
+            )
+
+else:
+    st.write("No updates found.")
 
     st.divider()
 
     st.subheader("🏆 Achievements")
 
-    if summary["achievements"]:
-        for item in summary["achievements"]:
+if summary["achievements"]:
+
+    for item in summary["achievements"]:
+
+        with st.expander(
+            f"🏅 {item['text'][:50]}"
+        ):
+
             st.write(
-                f"• {item['text']} "
-                f"({item['sender']})"
+                f"**Sender:** {item['sender']}"
             )
-    else:
-        st.write("No achievements found.")
+
+            st.write(
+                f"**Time:** {item['timestamp']}"
+            )
+
+            st.write(
+                f"**Message:** {item['text']}"
+            )
+
+else:
+    st.write("No achievements found.")
 
     st.divider()
 
