@@ -14,6 +14,16 @@
             "sender": "Priya",
             "text": "Results are out on Juno",
             "timestamp": "30-06-2026 16:13"
+        },
+        {
+            "sender": "Anish",
+            "text": "Meeting scheduled tomorrow",
+            "timestamp": "30-06-2026 16:18"
+        },
+        {
+            "sender": "Rahul",
+            "text": "I completed Google Data Analytics Certification",
+            "timestamp": "30-06-2026 16:19"
         }
     ]
 }
