@@ -1,4 +1,5 @@
 import streamlit as st
+from logic.summary_engine import generate_summary
 from logic.group_manager import load_groups, add_group
 from logic.message_manager import add_message, get_group_messages
 
@@ -73,3 +74,41 @@ if groups:
             st.write(f"**{msg['sender']}**")
             st.write(msg["text"])
             st.caption(msg["timestamp"])
+
+    st.divider()
+
+if st.button("🧠 Generate Smart Summary"):
+
+    summary = generate_summary(messages)
+
+    st.subheader("📢 Key Updates")
+
+    if summary["updates"]:
+        for item in summary["updates"]:
+            st.write(
+                f"• {item['text']} "
+                f"({item['sender']})"
+            )
+    else:
+        st.write("No updates found.")
+
+    st.divider()
+
+    st.subheader("🏆 Achievements")
+
+    if summary["achievements"]:
+        for item in summary["achievements"]:
+            st.write(
+                f"• {item['text']} "
+                f"({item['sender']})"
+            )
+    else:
+        st.write("No achievements found.")
+
+    st.divider()
+
+    st.subheader("🔥 Most Active Users")
+
+    if summary["active_users"]:
+        for user, count in summary["active_users"]:
+            st.write(f"{user} — {count} messages")
