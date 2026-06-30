@@ -1,1 +1,19 @@
-{}
+{
+    "Study Group": [
+        {
+            "sender": "Anish",
+            "text": "Project deadline shifted to Monday",
+            "timestamp": "30-06-2026 16:12"
+        },
+        {
+            "sender": "Rahul",
+            "text": "Thanks",
+            "timestamp": "30-06-2026 16:13"
+        },
+        {
+            "sender": "Priya",
+            "text": "Results are out on Juno",
+            "timestamp": "30-06-2026 16:13"
+        }
+    ]
+}
