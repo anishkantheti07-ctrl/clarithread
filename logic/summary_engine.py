@@ -1,6 +1,5 @@
 from collections import Counter
 
-
 UPDATE_KEYWORDS = [
     "deadline",
     "meeting",
@@ -22,6 +21,27 @@ ACHIEVEMENT_KEYWORDS = [
     "certified"
 ]
 
+FUTURE_WORDS = [
+    "will",
+    "might",
+    "hopefully",
+    "maybe",
+    "probably",
+    "soon",
+    "trying",
+    "attempting"
+]
+
+
+def is_real_achievement(text):
+
+    text = text.lower()
+
+    if any(word in text for word in FUTURE_WORDS):
+        return False
+
+    return any(word in text for word in ACHIEVEMENT_KEYWORDS)
+
 
 def generate_summary(messages):
 
@@ -38,7 +58,7 @@ def generate_summary(messages):
         if any(word in text for word in UPDATE_KEYWORDS):
             updates.append(msg)
 
-        if any(word in text for word in ACHIEVEMENT_KEYWORDS):
+        if is_real_achievement(text):
             achievements.append(msg)
 
     active_users = user_counter.most_common(3)
